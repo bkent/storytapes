@@ -9,8 +9,8 @@
 
   <title>Update Title</title>
   <link rel="stylesheet" href="storytapes.css" />
-  <link rel="shortcut icon" href="http://benkent.servehttp.com/storytapes/favicon.ico?v=2" />
-  <link rel="icon" type="image/jpg" href="http://benkent.servehttp.com/storytapes/largeicon.jpg?v=2" />
+  <link rel="shortcut icon" href="http://192.168.0.99/storytapes/favicon.ico?v=2" />
+  <link rel="icon" type="image/jpg" href="http://192.168.0.99/storytapes/largeicon.jpg?v=2" />
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 </head>
 
@@ -122,7 +122,7 @@
 
 else if ($sentfrom == "complete")
   {       
-    $data = $mysqli->query("update storytapes set id3tags='N' where id=$sid"); // set it to no, such that the id3 tagging and m3u generation is done
+    $data = $mysqli->query("update storytapes set id3tags='Y' where id=$sid");
   	$action = "home.php";
   }
      
