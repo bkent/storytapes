@@ -65,13 +65,16 @@
 
 <script src="<?php echo $_SESSION["external_prefix"] . $playlist; ?>.js"></script>
 <script>
+  var js_pos = <?php echo json_encode($position); ?>;
+	
 	// add an event listner to the audio control, 
 	// to start the current track at a specific time (in seconds)
   myAudio=document.getElementById('audio2');
   myAudio.addEventListener('canplaythrough', function() {
-    if(this.currentTime < <?php echo json_encode($position); ?>){this.currentTime = <?php echo json_encode($position); ?>}
+    if(this.currentTime < js_pos){this.currentTime = js_pos;}
     this.play();
     displayTrack();
+	js_pos = 0; // The positon needs to be read only once... i.e. when the bookmark is loaded.
   });
   
   myAudio=document.getElementById('audio2');
@@ -114,7 +117,7 @@
     displayTrack();
 	}
 	
-	function switchTrackReverse(){
+  function switchTrackReverse(){
 	if(playlist_index == (0)){
 		playlist_index = tracks.length - 1;
 	} else {
